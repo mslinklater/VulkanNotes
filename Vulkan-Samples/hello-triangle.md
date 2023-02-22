@@ -55,7 +55,10 @@
 
 ## init_render_pass
 
-
+Create since attachment description - imple clear/store image present
+Create subpass - one color attachment, the one just created
+Create subpass dependency
+Create render pass - one attachment, one subpass, one dependency
 
 ## init_swapchain
 
@@ -65,3 +68,11 @@
 * If there was an old swapchain, destroy it... first iterate over the swapchain image views and destroy them, then destroy the old swapchain object itself
 * Now grab the new swapchain images and initialise their resources one by one. 
 * Iterate over the swapchain images and create image views for each one.
+
+## init_per_frame
+
+This is done for each image in the swapchain
+
+* Create a VkFence for queue submit. The CPU will wait for this when acquiring next image to render in to.
+* Create a command pool to hold the commandbuffers to render in to the image
+* Allocate a primary command buffer from the pool

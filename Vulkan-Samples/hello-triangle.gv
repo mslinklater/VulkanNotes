@@ -1,0 +1,61 @@
+digraph g {
+fontname="Helvetica,Arial,sans-serif"
+node [fontname="Helvetica,Arial,sans-serif"]
+edge [fontname="Helvetica,Arial,sans-serif"]
+graph [
+rankdir = "LR"
+];
+node [
+fontsize = "16"
+shape = "ellipse"
+];
+edge [
+];
+
+"WMIsurface" [
+	label = "WMI surface"
+	shape = "record"
+]
+
+"swapchain" [
+	label = "VkSwapchain | <surface> surface | <images> images"
+	shape = "record"
+]
+
+"swapchainimagebuffer0" [
+	label = "VkImageBuffer"
+	shape = "record"
+]
+
+"swapchainimagebuffer1" [
+	label = "VkImageBuffer"
+	shape = "record"
+]
+
+"swapchainimagebuffer2" [
+	label = "VkImageBuffer"
+	shape = "record"
+]
+
+"swapchainimagebuffer3" [
+	label = "VkImageBuffer"
+	shape = "record"
+]
+
+"WMIsurface" -> "swapchain":surface [
+id = surface
+];
+
+"swapchain":images -> "swapchainimagebuffer0" [
+id = 0
+];
+"swapchain":images -> "swapchainimagebuffer1" [
+id = 0
+];
+"swapchain":images -> "swapchainimagebuffer2" [
+id = 0
+];
+"swapchain":images -> "swapchainimagebuffer3" [
+id = 0
+];
+
