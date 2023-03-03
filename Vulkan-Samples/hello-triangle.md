@@ -91,12 +91,48 @@
 
 ## **Methods**
 
+### debug_callback ###
+
+### validate_extesions ###
+
+### validate_layers ###
+
+### find_shader_stage ###
+
+### init_instance ###
+
+### init_device ###
+
+### teardown_per_frame ###
+
+### load_shader_module ###
+
+### acquire_next_image ###
+
+* Acquire a semaphore - either a new one or one from the recycle pile
+* Wait for any fences for this acquired image - wait for previous frame to finish rendering. This should just return immediately as it's a old frame in the chain.
+* Reset the command pool for the frame
+* Recycle the old semaphore for the frame - back to the heap
+* Store the new acquire semaphore as part of the frame data
+
+### render_triangle ###
+
+### present_image ###
+
+### teardown_framebuffers ###
+
+* Wait for the queue to be idle
+* Destroy all the Framebuffer objects
+* Clear the context framebuffer vector
+
+### teardown ###
+
 ### init_render_pass
 
-Create single attachment description - simple clear/store image present
-Create subpass - one color attachment, the one just created
-Create subpass dependency
-Create render pass - one attachment, one subpass, one dependency
+* Create single attachment description - simple clear/store image present
+* Create subpass - one color attachment, the one just created
+* Create subpass dependency
+* Create render pass - one attachment, one subpass, one dependency
 
 ### init_swapchain
 

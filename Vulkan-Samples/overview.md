@@ -85,9 +85,13 @@
 * vkb::Camera
 * vkb::DebugInfo
 * vkb::Device
+* vkb::Drawer
 * vkb::FencePool
 * vkb::field::Base
 	* vkb::field::Dynamic
 		* vkb::field::MinMax
 	* vkb::field::Static
 		* vkb::field::Vector
+* vkb::GLSLCompiler
+* vkb::GLTFLoader
+* vkb::Window
