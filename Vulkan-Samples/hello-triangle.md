@@ -93,19 +93,47 @@
 
 ### debug_callback ###
 
+* Logs message and possibly quits
+
 ### validate_extesions ###
+
+* Returns if list of desired extensions are present in properties list
 
 ### validate_layers ###
 
+* Return if list of desired layers are present in properties list
+
 ### find_shader_stage ###
+
+* Returns VkShaderStageFlagBits associated with filename extension
 
 ### init_instance ###
 
+* initialise vulkan instance
+
 ### init_device ###
+
+* enumerate devices
+* find physical device which has a graphics queue which supports presentation
+* create the device with one graphcs queue
+* get the queue
 
 ### teardown_per_frame ###
 
+This is done for each frame in the swap chain
+
+* destroy submit fence
+* free command buffers
+* destroy command pool
+* destroy acquire semaphore
+* destroy release semaphore
+
 ### load_shader_module ###
+
+* create instance of vkb glsl compiler
+* load file
+* compile shader, using correct shader stage
+* create a shader module with the resulting spirv
 
 ### acquire_next_image ###
 
@@ -117,7 +145,23 @@
 
 ### render_triangle ###
 
+* get frame buffer to render in to
+* grab the frames command buffer
+* begin the command buffer
+	* set clear value
+	* begin render pass
+	* bind the graphics pipeline
+	* set the viewport
+	* set the scissor
+	* draw 3 vertices
+	* end the render pass
+* end the command buffer
+* create a release semaphore
+* submit the buffer to the queue with semaphore
+
 ### present_image ###
+
+* present swapchain image with swapchain release semaphore
 
 ### teardown_framebuffers ###
 
@@ -126,6 +170,20 @@
 * Clear the context framebuffer vector
 
 ### teardown ###
+
+* wait for device idle
+* teardown_framebuffers()
+* teardown_per_frame * n
+* destroy recycled samephores
+* destroy pipeline
+* destroy pipeline layout
+* destroy render pass
+* destroy swap chain image views
+* destroy swap chain
+* destroy window surface
+* destroy device
+* destroy debug callback
+* reset vkb::instance
 
 ### init_render_pass
 
