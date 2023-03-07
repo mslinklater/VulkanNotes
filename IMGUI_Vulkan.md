@@ -2,10 +2,25 @@
 
 ## Data Structures
 
-### InitInfo
+### ImGui_ImplVulkan_InitInfo
+
+Passed in to ImGui from the application to give ImGui all the Vulkan info it needs to hook in to the rendering
 
 |Type|Description|
 |---|---|
+|VkInstance||
+|VkPhysicalDevice||
+|VkDevice||
+|uint32_t||
+|VkQueue||
+|VkPipelineCache||
+|VkDescriptorPool||
+|uint32_t||
+|uint32_t||
+|uint32_t||
+|VkSampleCountFlagBits||
+|const VkAllocatorCallbacks*||
+|void (*CheckVkResults)(VkResult)||
 
 ## Methods
 
